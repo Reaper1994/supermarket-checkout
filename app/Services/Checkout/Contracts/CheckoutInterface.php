@@ -7,7 +7,7 @@ use App\Models\Product;
 interface CheckoutInterface
 {
     /**
-     * Scans an Item
+     * Scans an Item updates inventory.
      *
      * @param Product $product
      * @return bool

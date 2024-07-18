@@ -35,19 +35,14 @@ class BuyOneGetOneFreeRule implements PricingRuleInterface
     */
     public function apply(Product $product, int $quantity): float
     {
-
-        if ($product->code === $this->productCode) {
-            // Calculate price considering buy one, get one free offer
-
-            $quantity = match (true) {
-                $quantity === 1 => $quantity,
-                $quantity > 1 => $quantity - 1,
-                $quantity < 1 => 0,
-            };
-
+        if ($product->code !== $this->productCode) {
+            // No rule applies if the product code doesn't match
             return $quantity * $product->price;
         }
 
-        return $quantity * $product->price;
+        // Calculate the effective quantity to pay for
+        $payableQuantity = intdiv($quantity + 1, 2); // For every 2 items, pay for 1
+
+        return $payableQuantity * $product->price;
     }
 }
