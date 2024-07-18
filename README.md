@@ -13,7 +13,6 @@ This project implements a supermarket checkout system that applies various prici
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/yourusername/supermarket-checkout.git
     cd supermarket-checkout
     ```
 
