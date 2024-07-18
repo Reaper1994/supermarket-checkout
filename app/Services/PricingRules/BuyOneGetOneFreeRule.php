@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Services\PricingRule;
+namespace App\Services\PricingRules;
 
-use App\Services\PricingRule\Contracts\PricingRuleInterface;
+use App\Models\Product;
+use App\Services\PricingRules\Contracts\PricingRuleInterface;
+use function Symfony\Component\String\s;
 
 /**
 * Class BuyOneGetOneFreeRule
@@ -10,40 +12,40 @@ use App\Services\PricingRule\Contracts\PricingRuleInterface;
 */
 class BuyOneGetOneFreeRule implements PricingRuleInterface
 {
-private $productCode;
+    protected string $productCode;
 
-/**
-* BuyOneGetOneFreeRule constructor.
-*
-* @param string $productCode
-*/
-public function __construct(string $productCode)
-{
-    $this->productCode = $productCode;
-}
+    /**
+     * @param string $productCode
+     */
+    public function __construct(string $productCode)
+    {
+        $this->productCode = $productCode;
 
-/**
-* Apply buy-one-get-one-free pricing rule.
-*
-* @param array $items
-* @return float
-*/
-public function apply(array $items): float
-{
-    $count = 0;
-    $total = 0.0;
-
-    foreach ($items as $item) {
-        if ($item['code'] === $this->productCode) {
-            $count++;
-            if ($count % 2 != 0) {
-                $total += $item['price'];
-            }
-        } else {
-                $total += $item['price'];
-        }
     }
 
-        return $total;
+    /**
+    * Apply buy-one-get-one-free pricing rule.
+    *
+    * @param Product $product
+     *@param int $quantity
+     *
+    * @return float
+    */
+    public function apply(Product $product, int $quantity): float
+    {
+
+        if ($product->code === $this->productCode) {
+            // Calculate price considering buy one, get one free offer
+
+            $quantity = match (true) {
+                $quantity === 1 => $quantity,
+                $quantity > 1 => $quantity - 1,
+                $quantity < 1 => 0,
+            };
+
+            return $quantity * $product->price;
+        }
+
+        return $quantity * $product->price;
     }
 }
