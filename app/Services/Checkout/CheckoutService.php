@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Services\Checkout;
 
 use App\Models\Product;
@@ -21,6 +23,8 @@ class CheckoutService implements CheckoutInterface
     }
 
     /**
+     * Scans a product to update against inventory stock.
+     *
      * @param Product $product
      * @return bool
      */
