@@ -7,6 +7,7 @@
     "require": {
         "php": "^8.2",
         "laravel/framework": "^11.9",
+        "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9"
     },
     "require-dev": {
@@ -16,7 +17,8 @@
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.0",
         "pestphp/pest": "^2.34",
-        "pestphp/pest-plugin-laravel": "^2.4"
+        "pestphp/pest-plugin-laravel": "^2.4",
+        "phpunit/php-code-coverage": "^10.1"
     },
     "autoload": {
         "psr-4": {
@@ -45,7 +47,7 @@
             "@php artisan key:generate --ansi",
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan migrate --graceful --ansi"
-        ]
+        ], "php-cs-fixer": "php-cs-fixer --config=./.php_cs"
     },
     "extra": {
         "laravel": {
