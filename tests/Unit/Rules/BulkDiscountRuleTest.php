@@ -21,4 +21,7 @@ class BulkDiscountRuleTest extends TestCase
 
         $this->assertEquals(18.00, $total); // Expected total with discount
     }
+
+
+
 }
