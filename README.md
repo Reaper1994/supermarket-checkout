@@ -25,7 +25,7 @@ This project implements a supermarket checkout system that applies various prici
 
 3. **Setup environment:**
 
-    Copy the example environment file and adjust the configuration as needed:
+    Copy the example environment file and adjust the configuration as needed ie setup the db creds:
 
     ```bash
     cp .env.example .env
