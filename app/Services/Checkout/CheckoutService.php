@@ -3,35 +3,45 @@
 namespace App\Services\Checkout;
 
 use App\Models\Product;
-
+use App\Services\Checkout\Contracts\CheckoutInterface;
 
 /**
- * Class Checkout
+ * Class CheckoutService
  * @package App\Services
  */
 class CheckoutService implements CheckoutInterface
 {
-    private $pricingRules;
-    private $items = [];
+    protected array $pricingRules;
+    protected array $items = [];
+    protected array $quantities = [];
 
-    /**
-     * Checkout constructor.
-     *
-     * @param PricingRuleInterface[] $pricingRules
-     */
     public function __construct(array $pricingRules)
     {
         $this->pricingRules = $pricingRules;
     }
 
     /**
-     * Scan an item.
-     *
-     * @param Product $item
+     * @param Product $product
+     * @return bool
      */
-    public function scan(Product $item)
+    public function scan(Product $product): bool
     {
-        $this->items[] = $item;
+        $code = $product->code;
+
+        if ($product->inventory_stock > 0) {
+            if (!isset($this->items[$code])) {
+                $this->items[$code] = $product;
+                $this->quantities[$code] = 0;
+            }
+
+            $this->quantities[$code]++;
+            $product->inventory_stock--;
+            $product->save();
+
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -43,10 +53,23 @@ class CheckoutService implements CheckoutInterface
     {
         $total = 0.0;
 
-        foreach ($this->pricingRules as $rule) {
-            $total = $rule->apply($this->items);
+        foreach ($this->items as $code => $product) {
+            $pricingRule = null;
+
+            foreach ($this->pricingRules as $rule) {
+                if ($code === $rule['product_code']) {
+                    $pricingRule = new $rule['class'](...$rule['params']);
+                    break; // Exit the loop once the matching rule is found
+                }
+            }
+
+            if ($pricingRule) {
+                $total += $pricingRule->apply($product, $this->quantities[$code]);
+            } else {
+                $total += $product->price * $this->quantities[$code];
+            }
         }
 
-        return $total;
+        return round($total, 2);
     }
 }
