@@ -4,7 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="376e2ab0-f359-464c-88f4-20841ea0486d" name="Changes" comment="initial commit" />
+    <list default="true" id="376e2ab0-f359-464c-88f4-20841ea0486d" name="Changes" comment="initial commit">
+      <change beforePath="$PROJECT_DIR$/.idea/php-test-framework.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Checkout/CheckoutService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Checkout/CheckoutService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/PricingRules/BulkDiscountRule.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/PricingRules/BulkDiscountRule.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/PricingRules/BuyOneGetOneFreeRule.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/PricingRules/BuyOneGetOneFreeRule.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/PricingRules/PricingRuleService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/PricingRules/PricingRuleService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/cache/packages.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/packages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/cache/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/services.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/pricing_rules.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/pricing_rules.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/CheckoutControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/CheckoutControllerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/CheckoutServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/CheckoutServiceTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Rules/BulkDiscountRuleTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Rules/BulkDiscountRuleTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Rules/BuyOneGetOneFreeTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Rules/BuyOneGetOneFreeTest.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,6 +42,19 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PHPCSFixerProjectConfiguration">
+    <option name="selectedConfigurationId" value="af18f239-a08b-463a-b3fc-07f56c33c987" />
+  </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpServers">
+    <servers>
+      <server host="supermarket-checkout.test" id="a708df4e-e848-4631-84cf-1a8c8c0b5215" name="supermarket-checkout.test" port="443" use_path_mappings="true">
+        <path_mappings>
+          <mapping local-root="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/resources" remote-root="C:/Program Files/Herd/resources/app.asar.unpacked/resources/valet" />
+        </path_mappings>
+      </server>
+    </servers>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\Program Files\php\php.exe">
     <include_path>
@@ -145,6 +179,7 @@
       <path value="$PROJECT_DIR$/vendor/nette/schema" />
       <path value="$PROJECT_DIR$/vendor/nette/utils" />
       <path value="$PROJECT_DIR$/vendor/phpstan/phpdoc-parser" />
+      <path value="$PROJECT_DIR$/vendor/laravel/sanctum" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -159,18 +194,38 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "PHPUnit.CheckoutServiceTest.testTotalPriceForGivenScenarios.executor": "Run",
+    "Pest.Main.executor": "Coverage",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "feature/store-checkout",
-    "last_opened_file_path": "C:/Users/osmar/Herd/supermarket-checkout",
+    "last_opened_file_path": "C:/Users/osmar/Herd/supermarket-checkout/app/Services",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "settings.php.quality.tools.php.code.sniffer",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\osmar\Herd\supermarket-checkout\app\Services" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\osmar\Herd\supermarket-checkout\tests\Unit\Rules" />
+      <recent name="C:\Users\osmar\Herd\supermarket-checkout\app\Services" />
+      <recent name="C:\Users\osmar\Herd\supermarket-checkout\app\Services\Contracts\PricingRules" />
+      <recent name="C:\Users\osmar\Herd\supermarket-checkout\app\Services\Contracts\PricingRules\Contracts" />
+      <recent name="C:\Users\osmar\Herd\supermarket-checkout\app" />
+    </key>
+  </component>
+  <component name="RunManager" selected="PHPUnit.CheckoutServiceTest.testTotalPriceForGivenScenarios">
+    <configuration name="CheckoutServiceTest.testTotalPriceForGivenScenarios" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\CheckoutServiceTest" file="$PROJECT_DIR$/tests/Unit/CheckoutServiceTest.php" method="testTotalPriceForGivenScenarios" paratest_binary_path="$PROJECT_DIR$/vendor/bin/paratest_for_phpstorm" scope="Method" />
+      <method v="2" />
+    </configuration>
     <configuration name="Main" type="PestRunConfigurationType">
       <option name="pestRunnerSettings">
         <PestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="ConfigurationFile" use_alternative_configuration_file="true" />
@@ -180,6 +235,11 @@
       </option>
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHPUnit.CheckoutServiceTest.testTotalPriceForGivenScenarios" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -216,7 +276,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721254441721</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="initial commit">
+      <option name="closed" value="true" />
+      <created>1721255259039</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1721255259039</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,5 +293,12 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/supermarket_checkout@Main.xml" NAME="Main Coverage Results" MODIFIED="1721256495027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
