@@ -2,56 +2,68 @@
 
 namespace App\Services\PricingRules;
 
+use App\Models\Product;
 use App\Services\PricingRules\Contracts\PricingRuleInterface;
 
 /**
  * Class BulkDiscountRule
  * @package App\Services\PricingRules
  */
-class BulkDiscountRuleService implements PricingRuleInterface {
-    private $productCode;
-    private $threshold;
-    private $discountedPrice;
+class BulkDiscountRule implements PricingRuleInterface {
+    protected string $productCode;
+    protected int $threshold;
+    protected float $discountPrice;
 
     /**
-     * BulkDiscountRule constructor.
-     *
-     * @param string $productCode
-     * @param int $threshold
-     * @param float $discountedPrice
+     * Private constructor to enforce usage of factory method.
      */
-    public function __construct(string $productCode, int $threshold, float $discountedPrice)
+    public function __construct(string $productCode, int $threshold, float $discountPrice)
     {
         $this->productCode = $productCode;
         $this->threshold = $threshold;
-        $this->discountedPrice = $discountedPrice;
+        $this->discountPrice = $discountPrice;
+    }
+
+    /**
+     * Factory method to create an instance based on configuration.
+     *
+     * @return BulkDiscountRule
+     */
+    public static function createFromConfig(): self
+    {
+        $config = config('pricing_rules.rules');
+
+        foreach ($config as $rule) {
+            if ($rule['class'] === self::class) {
+                return new self(
+                    $rule['params']['product_code'],
+                    $rule['params']['threshold'],
+                    $rule['params']['discount_price']
+                );
+            }
+        }
+
+        throw new \RuntimeException('BulkDiscountRule configuration not found.');
     }
 
     /**
      * Apply bulk discount pricing rule.
      *
-     * @param array $items
+     * @param Product $product
+     * @param int $quantity
+     *
      * @return float
      */
-    public function apply(array $items): float
+    public function apply(Product $product, int $quantity): float
     {
-        $count = 0;
-        $total = 0.0;
-
-        foreach ($items as $item) {
-            if ($item['code'] === $this->productCode) {
-                $count++;
-            }
-        }
-
-        foreach ($items as $item) {
-            if ($item['code'] === $this->productCode && $count >= $this->threshold) {
-                $total += $this->discountedPrice;
+        if ($product->code === $this->productCode) {
+            if ($quantity >= $this->threshold) {
+                return $quantity * $this->discountPrice;
             } else {
-                $total += $item['price'];
+                return $quantity * $product->price;
             }
         }
 
-        return $total;
+        return $quantity * $product->price;
     }
 }
