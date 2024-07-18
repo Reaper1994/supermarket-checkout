@@ -91,3 +91,6 @@ php artisan test --filter Feature or --filter Unit
 
 This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
+## Author
+ Osmar Rodrigues (https://github.com/Reaper1994)
+
