@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Services\Checkout;
 
 use App\Models\Product;
@@ -21,6 +23,8 @@ class CheckoutService implements CheckoutInterface
     }
 
     /**
+     * Scans a product to update against inventory stock.
+     *
      * @param Product $product
      * @return bool
      */
@@ -53,20 +57,20 @@ class CheckoutService implements CheckoutInterface
     {
         $total = 0.0;
 
-        foreach ($this->items as $code => $product) {
-            $pricingRule = null;
+        $pricingRuleInstances = [];
+        foreach ($this->pricingRules as $rule) {
+            $pricingRuleInstances[$rule['product_code']] = new $rule['class'](...$rule['params']);
+        }
 
-            foreach ($this->pricingRules as $rule) {
-                if ($code === $rule['product_code']) {
-                    $pricingRule = new $rule['class'](...$rule['params']);
-                    break; // Exit the loop once the matching rule is found
-                }
-            }
+        // Calculate total
+        foreach ($this->items as $code => $product) {
+            $pricingRule = $pricingRuleInstances[$code] ?? null;
+            $quantity = $this->quantities[$code] ?? 0;
 
             if ($pricingRule) {
-                $total += $pricingRule->apply($product, $this->quantities[$code]);
+                $total += $pricingRule->apply($product, $quantity);
             } else {
-                $total += $product->price * $this->quantities[$code];
+                $total += $product->price * $quantity;
             }
         }
 
