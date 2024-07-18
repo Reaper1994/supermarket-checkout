@@ -42,7 +42,6 @@ This project implements a supermarket checkout system that applies various prici
 The pricing rules are configured in `config/pricing_rules.php`:
 
 ```bash
-php
 return [
     'rules' => [
         [
@@ -85,7 +84,7 @@ After setting up the PHPUnit.xml file  run the following command
 
 
 ```bash
-php artisan test --testsuite=Unit
+php artisan test --filter Feature or --filter Unit
 ```
 
 ## License
