@@ -4,25 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="376e2ab0-f359-464c-88f4-20841ea0486d" name="Changes" comment="initial commit">
-      <change beforePath="$PROJECT_DIR$/.idea/php-test-framework.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="376e2ab0-f359-464c-88f4-20841ea0486d" name="Changes" comment="added negative quantity exception">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/Checkout/CheckoutService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Checkout/CheckoutService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Services/PricingRules/BulkDiscountRule.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/PricingRules/BulkDiscountRule.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Services/PricingRules/BuyOneGetOneFreeRule.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/PricingRules/BuyOneGetOneFreeRule.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/PricingRules/PricingRuleService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/PricingRules/PricingRuleService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/cache/packages.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/packages.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/cache/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/services.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/pricing_rules.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/pricing_rules.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/CheckoutControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/CheckoutControllerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/CheckoutServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/CheckoutServiceTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Unit/Rules/BulkDiscountRuleTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Rules/BulkDiscountRuleTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Unit/Rules/BuyOneGetOneFreeTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Rules/BuyOneGetOneFreeTest.php" afterDir="false" />
     </list>
@@ -33,12 +18,14 @@
   </component>
   <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution />
+    <execution>
+      <phar pharPath="$PROJECT_DIR$/composer.phar" />
+    </execution>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="feature/store-checkout" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -195,10 +182,11 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "PHPUnit.BuyOneGetOneFreeTest.testApplyWithFourItems.executor": "Run",
     "PHPUnit.CheckoutServiceTest.testTotalPriceForGivenScenarios.executor": "Run",
     "Pest.Main.executor": "Coverage",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature/store-checkout",
+    "git-widget-placeholder": "hotfix/improvements",
     "last_opened_file_path": "C:/Users/osmar/Herd/supermarket-checkout/app/Services",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -221,7 +209,11 @@
       <recent name="C:\Users\osmar\Herd\supermarket-checkout\app" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.CheckoutServiceTest.testTotalPriceForGivenScenarios">
+  <component name="RunManager" selected="PHPUnit.BuyOneGetOneFreeTest.testApplyWithFourItems">
+    <configuration name="BuyOneGetOneFreeTest.testApplyWithFourItems" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\Rules\BuyOneGetOneFreeTest" file="$PROJECT_DIR$/tests/Unit/Rules/BuyOneGetOneFreeTest.php" method="testApplyWithFourItems" paratest_binary_path="$PROJECT_DIR$/vendor/bin/paratest_for_phpstorm" scope="Method" />
+      <method v="2" />
+    </configuration>
     <configuration name="CheckoutServiceTest.testTotalPriceForGivenScenarios" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Unit\CheckoutServiceTest" file="$PROJECT_DIR$/tests/Unit/CheckoutServiceTest.php" method="testTotalPriceForGivenScenarios" paratest_binary_path="$PROJECT_DIR$/vendor/bin/paratest_for_phpstorm" scope="Method" />
       <method v="2" />
@@ -237,6 +229,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.BuyOneGetOneFreeTest.testApplyWithFourItems" />
         <item itemvalue="PHPUnit.CheckoutServiceTest.testTotalPriceForGivenScenarios" />
       </list>
     </recent_temporary>
@@ -284,7 +277,159 @@
       <option name="project" value="LOCAL" />
       <updated>1721255259039</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added migration models and seeder">
+      <option name="closed" value="true" />
+      <created>1721325729908</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1721325729908</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added an api route">
+      <option name="closed" value="true" />
+      <created>1721325762621</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1721325762621</updated>
+    </task>
+    <task id="LOCAL-00006" summary="php unit setup">
+      <option name="closed" value="true" />
+      <created>1721325807346</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1721325807346</updated>
+    </task>
+    <task id="LOCAL-00007" summary="misc setup">
+      <option name="closed" value="true" />
+      <created>1721325850886</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1721325850886</updated>
+    </task>
+    <task id="LOCAL-00008" summary="added interfaces">
+      <option name="closed" value="true" />
+      <created>1721325948526</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1721325948526</updated>
+    </task>
+    <task id="LOCAL-00009" summary="unit tests added for pricing rules">
+      <option name="closed" value="true" />
+      <created>1721326039311</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1721326039311</updated>
+    </task>
+    <task id="LOCAL-00010" summary="checkout service">
+      <option name="closed" value="true" />
+      <created>1721326132613</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1721326132613</updated>
+    </task>
+    <task id="LOCAL-00011" summary="pricing rules congfig">
+      <option name="closed" value="true" />
+      <created>1721326154852</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1721326154852</updated>
+    </task>
+    <task id="LOCAL-00012" summary=" bulk discount rule">
+      <option name="closed" value="true" />
+      <created>1721326190988</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1721326190988</updated>
+    </task>
+    <task id="LOCAL-00013" summary="buy one gt one free rule added">
+      <option name="closed" value="true" />
+      <created>1721326205041</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1721326205041</updated>
+    </task>
+    <task id="LOCAL-00014" summary="implemented checkout controller">
+      <option name="closed" value="true" />
+      <created>1721326221401</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1721326221401</updated>
+    </task>
+    <task id="LOCAL-00015" summary="feature ttest">
+      <option name="closed" value="true" />
+      <created>1721326251294</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1721326251294</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Refactor service registration to use singleton pattern">
+      <option name="closed" value="true" />
+      <created>1721326300178</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1721326300178</updated>
+    </task>
+    <task id="LOCAL-00017" summary="minor refactors updated docblocks">
+      <option name="closed" value="true" />
+      <created>1721326615994</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1721326615994</updated>
+    </task>
+    <task id="LOCAL-00018" summary="refactored checkout service">
+      <option name="closed" value="true" />
+      <created>1721339145237</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1721339145237</updated>
+    </task>
+    <task id="LOCAL-00019" summary="additional  edge cases handled in tests">
+      <option name="closed" value="true" />
+      <created>1721339186358</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1721339186358</updated>
+    </task>
+    <task id="LOCAL-00020" summary="fixed buy-one-get-one rule">
+      <option name="closed" value="true" />
+      <created>1721339223233</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1721339223233</updated>
+    </task>
+    <task id="LOCAL-00021" summary="updated comment">
+      <option name="closed" value="true" />
+      <created>1721384486093</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1721384486093</updated>
+    </task>
+    <task id="LOCAL-00022" summary="added negative quantity exception">
+      <option name="closed" value="true" />
+      <created>1721389603576</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1721389603576</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,7 +437,26 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="added migration models and seeder" />
+    <MESSAGE value="added an api route" />
+    <MESSAGE value="php unit setup" />
+    <MESSAGE value="misc setup" />
+    <MESSAGE value="added interfaces" />
+    <MESSAGE value="unit tests added for pricing rules" />
+    <MESSAGE value="checkout service" />
+    <MESSAGE value="pricing rules congfig" />
+    <MESSAGE value=" bulk discount rule" />
+    <MESSAGE value="buy one gt one free rule added" />
+    <MESSAGE value="implemented checkout controller" />
+    <MESSAGE value="feature ttest" />
+    <MESSAGE value="Refactor service registration to use singleton pattern" />
+    <MESSAGE value="minor refactors updated docblocks" />
+    <MESSAGE value="refactored checkout service" />
+    <MESSAGE value="additional  edge cases handled in tests" />
+    <MESSAGE value="fixed buy-one-get-one rule" />
+    <MESSAGE value="updated comment" />
+    <MESSAGE value="added negative quantity exception" />
+    <option name="LAST_COMMIT_MESSAGE" value="added negative quantity exception" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
