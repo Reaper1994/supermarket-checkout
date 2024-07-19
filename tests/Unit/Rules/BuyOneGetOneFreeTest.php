@@ -59,7 +59,7 @@ class BuyOneGetOneFreeTest extends TestCase
         ]);
 
         $rule = new BuyOneGetOneFreeRule('FR1');
-        $total = $rule->apply($product, 4); // Buy 4, get 1 free
+        $total = $rule->apply($product, 4); // Buy 4, get 2 free
 
         $this->assertEquals(6.22, $total); // Expected total: Pay for 2 items (3.11 * 2)
     }
