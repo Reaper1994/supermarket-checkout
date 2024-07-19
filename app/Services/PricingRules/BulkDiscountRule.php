@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services\PricingRules;
 
+use App\Exceptions\InvalidQuantityException;
 use App\Models\Product;
 use App\Services\PricingRules\Contracts\PricingRuleInterface;
 
@@ -55,15 +56,17 @@ class BulkDiscountRule implements PricingRuleInterface {
      * @param int $quantity
      *
      * @return float
+     * @throws InvalidQuantityException
      */
     public function apply(Product $product, int $quantity): float
     {
+        if ($quantity < 0) {
+            throw new InvalidQuantityException('Quantity cannot be negative.');
+        }
+
         if ($product->code === $this->productCode) {
-            if ($quantity >= $this->threshold) {
-                return $quantity * $this->discountPrice;
-            } else {
-                return $quantity * $product->price;
-            }
+            $price = $quantity >= $this->threshold ? $this->discountPrice : $product->price;
+            return $quantity * $price;
         }
 
         return $quantity * $product->price;

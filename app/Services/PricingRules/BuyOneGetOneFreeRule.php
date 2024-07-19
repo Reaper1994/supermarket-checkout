@@ -6,7 +6,7 @@ namespace App\Services\PricingRules;
 
 use App\Models\Product;
 use App\Services\PricingRules\Contracts\PricingRuleInterface;
-use function Symfony\Component\String\s;
+use App\Exceptions\InvalidQuantityException;
 
 /**
 * Class BuyOneGetOneFreeRule
@@ -26,15 +26,20 @@ class BuyOneGetOneFreeRule implements PricingRuleInterface
     }
 
     /**
-    * Apply buy-one-get-one-free pricing rule.
-    *
-    * @param Product $product
-     *@param int $quantity
+     * Apply buy-one-get-one-free pricing rule.
      *
-    * @return float
-    */
+     * @param Product $product
+     * @param int $quantity
+     *
+     * @return float
+     * @throws InvalidQuantityException
+     */
     public function apply(Product $product, int $quantity): float
     {
+        if ($quantity < 0) {
+            throw new InvalidQuantityException('Quantity cannot be negative.');
+        }
+
         if ($product->code !== $this->productCode) {
             // No rule applies if the product code doesn't match
             return $quantity * $product->price;
