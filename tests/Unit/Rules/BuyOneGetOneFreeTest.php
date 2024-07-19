@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Unit\Rules;
 
 use App\Exceptions\InvalidQuantityException;
@@ -9,6 +11,12 @@ use PHPUnit\Framework\TestCase;
 
 class BuyOneGetOneFreeTest extends TestCase
 {
+    /**
+     * @param string $code
+     * @param string $name
+     * @param float $price
+     * @return Product
+     */
     private function createProduct(string $code, string $name, float $price): Product
     {
         return new Product([
@@ -18,11 +26,19 @@ class BuyOneGetOneFreeTest extends TestCase
         ]);
     }
 
+    /**
+     * @param string $productCode
+     * @return BuyOneGetOneFreeRule
+     */
     private function createRule(string $productCode): BuyOneGetOneFreeRule
     {
         return new BuyOneGetOneFreeRule($productCode);
     }
 
+    /**
+     * @return void
+     * @throws InvalidQuantityException
+     */
     public function testApplyWithOneItem()
     {
         $product = $this->createProduct('FR1', 'Fruit Tea', 3.11);
@@ -33,6 +49,10 @@ class BuyOneGetOneFreeTest extends TestCase
         $this->assertEquals(3.11, $total); // Expected total: Pay for 1 item (3.11 * 1)
     }
 
+    /**
+     * @return void
+     * @throws InvalidQuantityException
+     */
     public function testApplyWithTwoItems()
     {
         $product = $this->createProduct('FR1', 'Fruit Tea', 3.11);
@@ -43,6 +63,10 @@ class BuyOneGetOneFreeTest extends TestCase
         $this->assertEquals(3.11, $total); // Expected total: Pay for 1 item (3.11 * 1)
     }
 
+    /**
+     * @return void
+     * @throws InvalidQuantityException
+     */
     public function testApplyWithThreeItems()
     {
         $product = $this->createProduct('FR1', 'Fruit Tea', 3.11);
@@ -53,6 +77,10 @@ class BuyOneGetOneFreeTest extends TestCase
         $this->assertEquals(6.22, $total); // Expected total: Pay for 2 items (3.11 * 2)
     }
 
+    /**
+     * @return void
+     * @throws InvalidQuantityException
+     */
     public function testApplyWithFourItems()
     {
         $product = $this->createProduct('FR1', 'Fruit Tea', 3.11);
@@ -63,6 +91,10 @@ class BuyOneGetOneFreeTest extends TestCase
         $this->assertEquals(6.22, $total); // Expected total: Pay for 2 items (3.11 * 2)
     }
 
+    /**
+     * @return void
+     * @throws InvalidQuantityException
+     */
     public function testApplyNegativeQuantity()
     {
         $this->expectException(InvalidQuantityException::class);
@@ -74,6 +106,10 @@ class BuyOneGetOneFreeTest extends TestCase
         $rule->apply($product, -1); // Apply rule with negative quantity
     }
 
+    /**
+     * @return void
+     * @throws InvalidQuantityException
+     */
     public function testApplyWithDifferentProductCode()
     {
         $product = $this->createProduct('CF1', 'Coffee', 11.23);
