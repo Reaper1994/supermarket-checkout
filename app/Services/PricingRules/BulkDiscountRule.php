@@ -28,28 +28,6 @@ class BulkDiscountRule implements PricingRuleInterface {
     }
 
     /**
-     * Factory method to create an instance based on configuration.
-     *
-     * @return BulkDiscountRule
-     */
-    public static function createFromConfig(): self
-    {
-        $config = config('pricing_rules.rules');
-
-        foreach ($config as $rule) {
-            if ($rule['class'] === self::class) {
-                return new self(
-                    $rule['params']['product_code'],
-                    $rule['params']['threshold'],
-                    $rule['params']['discount_price']
-                );
-            }
-        }
-
-        throw new \RuntimeException('BulkDiscountRule configuration not found.');
-    }
-
-    /**
      * Apply bulk discount pricing rule.
      *
      * @param Product $product
