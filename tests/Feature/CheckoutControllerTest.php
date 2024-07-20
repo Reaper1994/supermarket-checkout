@@ -77,4 +77,16 @@ class CheckoutControllerTest extends TestCase
         $response->assertStatus(200);
         $response->assertJson(['total' => 16.61]);
     }
+
+    public function testCheckoutWithInvalidProductCode()
+    {
+        $response = $this->postJson('/api/checkout', [
+            'products' => [
+                ['code' => 'INVALID_CODE'],
+            ]
+        ]);
+
+        $response->assertStatus(400);
+        $response->assertJson(['error' => 'Failed to process product: INVALID_CODE']);
+    }
 }

@@ -34,8 +34,10 @@ class CheckoutController extends Controller
 
         foreach ($productsData as $productData) {
             $product = Product::where('code', $productData['code'])->first();
-            if ($product) {
-                $co->scan($product);
+            if (!$product || !$co->scan($product)) {
+                return response()->json([
+                    'error' => 'Failed to process product: ' . $productData['code']
+                ], 400);
             }
         }
 
