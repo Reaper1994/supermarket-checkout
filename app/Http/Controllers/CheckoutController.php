@@ -29,9 +29,8 @@ class CheckoutController extends Controller
     public function checkout(Request $request): JsonResponse
     {
         $productsData = $request->input('products');
-        $pricingRules = config('pricing_rules.rules');
 
-        $co = new CheckoutService($pricingRules);
+        $co = $this->checkoutService;
 
         foreach ($productsData as $productData) {
             $product = Product::where('code', $productData['code'])->first();
