@@ -36,6 +36,7 @@ This project implements a supermarket checkout system that applies various prici
     php artisan migrate --seed
     ```
 
+
 ## Configuration
 
 The pricing rules are configured in `config/pricing_rules.php`:
@@ -54,6 +55,25 @@ return [
             'product_code' => 'SR1'
         ],
     ],
+```
+##Usage using cURL
+
+```bash
+curl -X POST http://yourdomain.com/api/checkout \
+     -H "Content-Type: application/json" \
+     -d '{"products":[{"code":"FR1"},{"code":"SR1"}]}'
+```
+### Success Response
+```bash
+{
+    "total": 10.50
+}
+````
+###Error Response:
+```json
+{
+    "error": "Failed to process product: FR1"
+}
 ```
 
 ## Testing
