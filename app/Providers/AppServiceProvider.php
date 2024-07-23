@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Services\Checkout\CheckoutService;
+use App\Services\Checkout\Contracts\CheckoutInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         //
-        $this->app->singleton(CheckoutService::class, function ($app) {
+        $this->app->singleton(CheckoutInterface::class, function ($app) {
             $pricingRules = config('pricing_rules.rules');
             return new CheckoutService($pricingRules);
         });
