@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Services\Checkout\CheckoutService;
+use App\Services\Checkout\Contracts\CheckoutInterface;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -13,9 +13,9 @@ use Illuminate\Http\Request;
  */
 class CheckoutController extends Controller
 {
-    protected CheckoutService $checkoutService;
+    protected CheckoutInterface $checkoutService;
 
-    public function __construct(CheckoutService $checkoutService)
+    public function __construct(CheckoutInterface $checkoutService)
     {
         $this->checkoutService = $checkoutService;
     }
@@ -29,17 +29,14 @@ class CheckoutController extends Controller
     public function checkout(Request $request): JsonResponse
     {
         $productsData = $request->input('products');
-        $pricingRules = config('pricing_rules.rules');
-
-        $co = new CheckoutService($pricingRules);
 
         foreach ($productsData as $productData) {
             $product = Product::where('code', $productData['code'])->first();
             if ($product) {
-                $co->scan($product);
+                $this->checkoutService->scan($product);
             }
         }
 
-        return response()->json(['total' => $co->total()]);
+        return response()->json(['total' => $this->checkoutService->total()]);
     }
 }

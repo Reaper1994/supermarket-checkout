@@ -2,7 +2,6 @@
 
 namespace Tests\Feature;
 
-use App\Services\Checkout\CheckoutService;
 use Database\Seeders\ProductsTableSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
@@ -27,9 +26,6 @@ class CheckoutControllerTest extends TestCase
 
     public function testCheckoutCase1()
     {
-        $pricingRules = config('pricing_rules.rules');
-        $service = new CheckoutService($pricingRules);
-
         $response = $this->postJson('/api/checkout', [
             'products' => [
                 ['code' => 'FR1'],
@@ -46,9 +42,6 @@ class CheckoutControllerTest extends TestCase
 
     public function testCheckoutCase2()
     {
-        $pricingRules = config('pricing_rules.rules');
-        $service = new CheckoutService($pricingRules);
-
         $response = $this->postJson('/api/checkout', [
             'products' => [
                 ['code' => 'FR1'],
@@ -62,9 +55,6 @@ class CheckoutControllerTest extends TestCase
 
     public function testCheckoutCase3()
     {
-        $pricingRules = config('pricing_rules.rules');
-        $service = new CheckoutService($pricingRules);
-
         $response = $this->postJson('/api/checkout', [
             'products' => [
                 ['code' => 'SR1'],

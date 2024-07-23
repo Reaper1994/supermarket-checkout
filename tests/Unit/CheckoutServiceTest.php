@@ -14,14 +14,19 @@ class CheckoutServiceTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->seed(ProductsTableSeeder::class); // Seed the database
+        $this->seed(ProductsTableSeeder::class); // Seed the
+
+        // Define pricing rules for the tests
+        $pricingRules = config('pricing_rules.rules');
+
+        // Initialize the CheckoutService with pricing rules
+        $this->checkoutService = new CheckoutService($pricingRules);
     }
 
     public function testScanAndTotal()
     {
-        $pricingRules = config('pricing_rules.rules');
 
-        $service = new CheckoutService($pricingRules);
+        $service =  $this->checkoutService;
 
         $product1 = Product::where('code', 'FR1')->first();
         $product2 = Product::where('code', 'SR1')->first();
@@ -45,8 +50,7 @@ class CheckoutServiceTest extends TestCase
 
     public function testScanAndTotalCase2()
     {
-        $pricingRules = config('pricing_rules.rules');
-        $service = new CheckoutService($pricingRules);
+        $service =  $this->checkoutService;
 
         $product1 = Product::where('code', 'FR1')->first();
 
@@ -59,8 +63,7 @@ class CheckoutServiceTest extends TestCase
 
     public function testScanAndTotalCase3()
     {
-        $pricingRules = config('pricing_rules.rules');
-        $service = new CheckoutService($pricingRules);
+        $service =  $this->checkoutService;
 
         $product1 = Product::where('code', 'FR1')->first();
         $product2 = Product::where('code', 'SR1')->first();
@@ -72,5 +75,20 @@ class CheckoutServiceTest extends TestCase
 
         $total = $service->total();
         $this->assertEquals(16.61, $total); // Total price expected: £16.61
+    }
+
+    public function testScanReturnsFalseWhenInventoryStockIsZero(): void
+    {
+        // Create a product with inventory_stock set to 0
+        $product1 = Product::where('code', 'FR1')->first();
+
+        $product1->inventory_stock = 0;
+        $product1->save();
+
+        // Attempt to scan the product
+        $result = $this->checkoutService->scan($product1);
+
+        // Assert that the scan method returns false
+        $this->assertFalse($result);
     }
 }
