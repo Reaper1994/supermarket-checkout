@@ -24,7 +24,7 @@ This project implements a supermarket checkout system that applies various prici
 
 3. **Setup environment:**
 
-    Copy the example environment file and adjust the configuration as needed ie setup the db creds:
+    Copy the example environment file adjust the configuration as needed ie setup the db creds:
 
     ```bash
     cp .env.example .env
@@ -45,37 +45,15 @@ return [
     'rules' => [
         [
             'class' => \App\Services\PricingRules\BuyOneGetOneFreeRule::class,
-            'params' => ['FR1'],
+            'params' => ['FR1'], // product_code
             'product_code' => 'FR1'
         ],
         [
             'class' => \App\Services\PricingRules\BulkDiscountRule::class,
-            'params' => ['SR1', 3, 4.50],
+            'params' => ['SR1', 3, 4.50], // product_code , units , discount
             'product_code' => 'SR1'
         ],
     ],
-];
-```
-
-## Usage
-
-To perform a checkout, use the CheckoutService:
-
-```bash
-use App\Models\Product;
-use App\Services\Checkout\CheckoutService;
-
-$pricingRules = config('pricing_rules.rules');
-$checkout = new CheckoutService($pricingRules);
-
-$product1 = Product::where('code', 'FR1')->first();
-$product2 = Product::where('code', 'SR1')->first();
-
-$checkout->scan($product1);
-$checkout->scan($product2);
-
-$total = $checkout->total();
-echo "Total: $total";
 ```
 
 ## Testing
