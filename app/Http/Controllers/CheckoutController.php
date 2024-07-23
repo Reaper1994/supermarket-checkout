@@ -30,10 +30,15 @@ class CheckoutController extends Controller
     {
         $productsData = $request->input('products');
 
+        $co = $this->checkoutService;
+
         foreach ($productsData as $productData) {
             $product = Product::where('code', $productData['code'])->first();
-            if ($product) {
-                $this->checkoutService->scan($product);
+
+            if (!$product || !$co->scan($product)) {
+                return response()->json([
+                    'error' => 'Failed to process product: ' . $productData['code']
+                ], 400);
             }
         }
 

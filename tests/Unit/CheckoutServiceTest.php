@@ -77,6 +77,27 @@ class CheckoutServiceTest extends TestCase
         $this->assertEquals(16.61, $total); // Total price expected: £16.61
     }
 
+    public function testScanFails()
+    {
+        $pricingRules = config('pricing_rules.rules');
+        $service = new CheckoutService($pricingRules);
+
+        // Set the product's inventory stock to 0
+        $product = Product::where('code', 'FR1')->first();
+        $product->inventory_stock = 0;
+        $product->save();
+
+        // Try to scan the product with 0 inventory
+        $result = $service->scan($product);
+
+        // Assert that the scan method returns false
+        $this->assertFalse($result);
+
+        // Assert that the total is still 0.00
+        $total = $service->total();
+        $this->assertEquals(0.00, $total); // Total price expected: £0.00
+    }
+
     public function testScanReturnsFalseWhenInventoryStockIsZero(): void
     {
         // Create a product with inventory_stock set to 0
