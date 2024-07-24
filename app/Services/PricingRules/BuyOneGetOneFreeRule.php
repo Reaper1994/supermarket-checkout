@@ -14,12 +14,12 @@ use App\Exceptions\InvalidQuantityException;
 */
 class BuyOneGetOneFreeRule implements PricingRuleInterface
 {
-    protected string $productCode;
+    protected array $productCode;
 
     /**
-     * @param string $productCode
+     * @param array $productCode
      */
-    public function __construct(string $productCode)
+    public function __construct(array $productCode)
     {
         $this->productCode = $productCode;
 
@@ -40,7 +40,7 @@ class BuyOneGetOneFreeRule implements PricingRuleInterface
             throw new InvalidQuantityException('Quantity cannot be negative.');
         }
 
-        if ($product->code !== $this->productCode) {
+        if (!in_array($product->code, $this->productCode)) {
             // No rule applies if the product code doesn't match
             return $quantity * $product->price;
         }

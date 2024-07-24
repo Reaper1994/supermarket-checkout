@@ -56,10 +56,20 @@ class CheckoutService implements CheckoutInterface
     public function total(): float
     {
         $total = 0.0;
-
         $pricingRuleInstances = [];
-        foreach ($this->pricingRules as $rule) {
-            $pricingRuleInstances[$rule['product_code']] = new $rule['class'](...$rule['params']);
+
+        // Instantiate pricing rules
+        foreach ($this->pricingRules as $ruleConfig) {
+            $class = $ruleConfig['class'];
+            $params = $ruleConfig['params'];
+
+            // Instantiate the rule
+            $rule = new $class(...$params);
+
+            // Register the rule instance for applicable product codes
+            foreach ($params[0] as $code) {
+                $pricingRuleInstances[$code] = $rule;
+            }
         }
 
         // Calculate total
