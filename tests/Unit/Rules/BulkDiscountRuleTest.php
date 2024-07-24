@@ -18,7 +18,7 @@ class BulkDiscountRuleTest extends TestCase
         ]);
     }
 
-    private function createRule(string $productCode, int $threshold, float $discountPrice): BulkDiscountRule
+    private function createRule(array $productCode, int $threshold, float $discountPrice): BulkDiscountRule
     {
         return new BulkDiscountRule($productCode, $threshold, $discountPrice);
     }
@@ -26,7 +26,7 @@ class BulkDiscountRuleTest extends TestCase
     public function testApplyBelowThreshold()
     {
         $product = $this->createProduct('SR1', 'Strawberries', 5.00);
-        $rule = $this->createRule('SR1', 3, 4.50);
+        $rule = $this->createRule(['SR1'], 3, 4.50);
 
         $total = $rule->apply($product, 2); // Buy 2 strawberries
 
@@ -36,7 +36,7 @@ class BulkDiscountRuleTest extends TestCase
     public function testApplyAtThreshold()
     {
         $product = $this->createProduct('SR1', 'Strawberries', 5.00);
-        $rule = $this->createRule('SR1', 3, 4.50);
+        $rule = $this->createRule(['SR1'], 3, 4.50);
 
         $total = $rule->apply($product, 3); // Buy 3 strawberries
 
@@ -46,7 +46,7 @@ class BulkDiscountRuleTest extends TestCase
     public function testApplyAboveThreshold()
     {
         $product = $this->createProduct('SR1', 'Strawberries', 5.00);
-        $rule = $this->createRule('SR1', 3, 4.50);
+        $rule = $this->createRule(['SR1'], 3, 4.50);
 
         $total = $rule->apply($product, 4); // Buy 4 strawberries
 
@@ -56,7 +56,7 @@ class BulkDiscountRuleTest extends TestCase
     public function testApplyWithDifferentDiscountPrice()
     {
         $product = $this->createProduct('SR1', 'Strawberries', 5.00);
-        $rule = $this->createRule('SR1', 3, 3.50);
+        $rule = $this->createRule(['SR1'], 3, 3.50);
 
         $total = $rule->apply($product, 4); // Buy 4 strawberries
 
@@ -66,7 +66,7 @@ class BulkDiscountRuleTest extends TestCase
     public function testApplyWithDifferentThreshold()
     {
         $product = $this->createProduct('SR1', 'Strawberries', 5.00);
-        $rule = $this->createRule('SR1', 5, 4.00);
+        $rule = $this->createRule(['SR1'], 5, 4.00);
 
         $total = $rule->apply($product, 5); // Buy 5 strawberries
 
@@ -76,7 +76,7 @@ class BulkDiscountRuleTest extends TestCase
     public function testApplyDifferentProduct()
     {
         $product = $this->createProduct('SR2', 'Blueberries', 5.00);
-        $rule = $this->createRule('SR1', 3, 4.50);
+        $rule = $this->createRule(['SR1'], 3, 4.50);
 
         $total = $rule->apply($product, 4); // Buy 4 blueberries
 
@@ -86,7 +86,7 @@ class BulkDiscountRuleTest extends TestCase
     public function testApplyZeroQuantity()
     {
         $product = $this->createProduct('SR1', 'Strawberries', 5.00);
-        $rule = $this->createRule('SR1', 3, 4.50);
+        $rule = $this->createRule(['SR1'], 3, 4.50);
 
         $total = $rule->apply($product, 0); // Buy 0 strawberries
 
@@ -99,7 +99,7 @@ class BulkDiscountRuleTest extends TestCase
         $this->expectExceptionMessage('Quantity cannot be negative.');
 
         $product = $this->createProduct('SR1', 'Strawberries', 5.00);
-        $rule = $this->createRule('SR1', 3, 4.50);
+        $rule = $this->createRule(['SR1'], 3, 4.50);
 
         $rule->apply($product, -1); // Apply rule with negative quantity
     }

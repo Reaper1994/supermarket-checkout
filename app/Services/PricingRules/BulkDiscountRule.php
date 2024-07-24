@@ -13,14 +13,14 @@ use App\Services\PricingRules\Contracts\PricingRuleInterface;
  * @package App\Services\PricingRules
  */
 class BulkDiscountRule implements PricingRuleInterface {
-    protected string $productCode;
+    protected array $productCode;
     protected int $threshold;
     protected float $discountPrice;
 
     /**
      * Private constructor to enforce usage of factory method.
      */
-    public function __construct(string $productCode, int $threshold, float $discountPrice)
+    public function __construct(array $productCode, int $threshold, float $discountPrice)
     {
         $this->productCode = $productCode;
         $this->threshold = $threshold;
@@ -42,7 +42,7 @@ class BulkDiscountRule implements PricingRuleInterface {
             throw new InvalidQuantityException('Quantity cannot be negative.');
         }
 
-        if ($product->code === $this->productCode) {
+        if (in_array($product->code, $this->productCode)) {
             $price = $quantity >= $this->threshold ? $this->discountPrice : $product->price;
             return $quantity * $price;
         }
