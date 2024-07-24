@@ -4,13 +4,16 @@ return [
     'rules' => [
         [
             'class' => \App\Services\PricingRules\BuyOneGetOneFreeRule::class,
-            'params' => ['FR1'], // product_code
-            'product_code' => 'FR1'
+            'params' => [
+                ['FR1'] // array of product_codes on which discount is to be applied on
+            ],
         ],
         [
             'class' => \App\Services\PricingRules\BulkDiscountRule::class,
-            'params' => ['SR1', 3, 4.50], // product_code , units , discount
-            'product_code' => 'SR1'
+            'params' => [
+                ['SR1'], // array of product_codes on which discount is to be applied on
+                3, // units
+                4.50], //discount
         ],
     ],
 ];
