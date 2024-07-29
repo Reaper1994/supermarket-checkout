@@ -87,7 +87,7 @@ After setting up the PHPUnit.xml file  run the following command
 ```bash
 php artisan test --filter Feature or --filter Unit
 ```
-
+Currently, the coverage is 100%!
 ## License
 
 This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
