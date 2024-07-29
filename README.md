@@ -1,6 +1,6 @@
 # Supermarket Checkout System
 
-This project implements a supermarket checkout system that applies various pricing rules. It includes both a service layer for processing checkout operations and unit tests to ensure correctness.
+This project implements a flexible supermarket checkout system that applies various pricing rules. It includes a service layer for processing checkout operations and unit tests to ensure correctness.
 
 ## Products in the Database
 Currently, we have only three products in the database:
