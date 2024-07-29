@@ -14,8 +14,8 @@ Currently, we have only three products in the database:
 
 ## Features
 
-- **Buy One Get One Free**: Applies to specific products.
-- **Bulk Discount**: Applies discounts when a minimum quantity of a product is purchased.
+- **Buy One Get One Free**: Applies to specific products. (Currently configured for product code 'FR1' as you will see in the config below)
+- **Bulk Discount**: Applies discounts when a minimum quantity of a product is purchased. (Currently configured for product code 'SR1'- when you buy 3 you get one free-  as you will see in the config below)
 - **Flexible Pricing Rules**: Configurable via a PHP configuration file.
 
 ## Installation
