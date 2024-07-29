@@ -2,6 +2,16 @@
 
 This project implements a supermarket checkout system that applies various pricing rules. It includes both a service layer for processing checkout operations and unit tests to ensure correctness.
 
+## Products in the Database
+Currently, we have only three products in the database:
+
+| Product Code | Name         | Price  |
+|--------------|--------------|--------|
+| FR1          | Fruit Tea    | £3.11  |
+| SR1          | Strawberries | £5.00  |
+| CF1          | Coffee       | £11.23 |
+
+
 ## Features
 
 - **Buy One Get One Free**: Applies to specific products.
