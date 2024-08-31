@@ -11,15 +11,4 @@
       </tool>
     </test_tools>
   </component>
-  <component name="PhpTestFrameworkVersionCache">
-    <tools_cache>
-      <tool tool_name="Pest">
-        <cache>
-          <versions>
-            <info id="LocalC:\Users\osmar\Herd\supermarket-checkout\vendor\pestphp\pest\bin\pest" version="2.34.9" />
-          </versions>
-        </cache>
-      </tool>
-    </tools_cache>
-  </component>
 </project>
