@@ -70,7 +70,7 @@ return [
     ],
 ];
 ```
-##Usage using cURL
+## Usage using cURL
 
 ```bash
 curl -X POST http://yourdomain.com/api/checkout \
