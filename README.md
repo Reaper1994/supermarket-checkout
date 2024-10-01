@@ -83,7 +83,7 @@ curl -X POST http://yourdomain.com/api/checkout \
     "total": 10.50
 }
 ````
-###Error Response:
+### Error Response:
 ```json
 {
     "error": "Failed to process product: FR1"
