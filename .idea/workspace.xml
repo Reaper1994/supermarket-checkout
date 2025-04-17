@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="376e2ab0-f359-464c-88f4-20841ea0486d" name="Changes" comment="added negative quantity exception">
-      <change beforePath="$PROJECT_DIR$/.idea/php-test-framework.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="376e2ab0-f359-464c-88f4-20841ea0486d" name="Changes" comment="minor securty patches">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/Checkout/CheckoutService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Checkout/CheckoutService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/cache/packages.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/packages.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/cache/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/services.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +21,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/store-checkout" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -45,7 +39,7 @@
       </server>
     </servers>
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\Program Files\php\php.exe">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/opt/homebrew/Cellar/php/8.3.12/bin/php">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
       <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
@@ -188,7 +182,7 @@
     &quot;PHPUnit.CheckoutServiceTest.testTotalPriceForGivenScenarios.executor&quot;: &quot;Run&quot;,
     &quot;Pest.Main.executor&quot;: &quot;Coverage&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;hotfix/improvements&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/osmarrodrigues/Herd/supermarket-checkout&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -229,6 +223,9 @@
       <option name="pestRunnerSettings">
         <PestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="ConfigurationFile" use_alternative_configuration_file="true" />
       </option>
+      <option name="runnerSettings">
+        <PhpTestRunnerSettings configuration_file="$PROJECT_DIR$/phpunit.xml" scope="ConfigurationFile" use_alternative_configuration_file="true" />
+      </option>
       <method v="2" />
     </configuration>
     <recent_temporary>
@@ -258,6 +255,14 @@
       <workItem from="1721254619842" duration="250000" />
       <workItem from="1724950637953" duration="33000" />
       <workItem from="1724950704101" duration="5173000" />
+      <workItem from="1725143847204" duration="3889000" />
+      <workItem from="1728421821528" duration="781000" />
+      <workItem from="1728684935095" duration="590000" />
+      <workItem from="1728686038343" duration="344000" />
+      <workItem from="1728687163689" duration="19000" />
+      <workItem from="1728687614454" duration="45000" />
+      <workItem from="1729582517962" duration="5205000" />
+      <workItem from="1730213441105" duration="243000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -435,7 +440,23 @@
       <option name="project" value="LOCAL" />
       <updated>1721389603576</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="minor securty patches">
+      <option name="closed" value="true" />
+      <created>1728421982241</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1728421982241</updated>
+    </task>
+    <task id="LOCAL-00024" summary="minor securty patches">
+      <option name="closed" value="true" />
+      <created>1729626480459</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1729626480459</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -462,7 +483,10 @@
     <MESSAGE value="fixed buy-one-get-one rule" />
     <MESSAGE value="updated comment" />
     <MESSAGE value="added negative quantity exception" />
-    <option name="LAST_COMMIT_MESSAGE" value="added negative quantity exception" />
+    <MESSAGE value="minor updates" />
+    <MESSAGE value="minor improvements" />
+    <MESSAGE value="minor securty patches" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor securty patches" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
